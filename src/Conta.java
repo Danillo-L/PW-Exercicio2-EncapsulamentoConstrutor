@@ -35,11 +35,5 @@ public class Conta {
         return contaDestino.depositar(valor);
     }
 
-    public double getSaldo() {
-        return saldo;
-    }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
 }

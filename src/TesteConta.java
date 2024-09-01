@@ -1,51 +1,45 @@
 public class TesteConta {
     public static void main(String[] args)
     {
-        Conta contaCorrente = new Conta(500, "Corrente");
-        Conta contaPoupanca = new Conta(500, "Poupanca");
+        Conta contaCorrente = new Conta(3000, "Corrente");
+        Conta contaPoupanca = new Conta(3000, "Poupanca");
 
         System.out.println("=========================================");
         System.out.println("DEPÓSITO, SAQUE E TRANSFERÊNCIA");
         System.out.println("=========================================");
 
         // DEPÓSITO CONTA CORRENTE
-
-        System.out.println("Depósito de 500 reais na conta do tipo corrente:");  // true
-        System.out.println(contaCorrente.depositar(500) + "\n");
-
-        System.out.println("Depósito de 1500 reais na conta do tipo corrente:"); // false, pois de acordo com a regra de negócio o depósito não
-        System.out.println(contaCorrente.depositar(1500) + "\n");          // pode ser maior que 1000 se a conta for do tipo corrente
+        System.out.println("Depósito de 1500 reais na conta do tipo corrente:");  // false, pois o valor depositado na conta
+        System.out.println(contaCorrente.depositar(1500) + "\n");            // corrente não pode ser maior que 1000
 
         // DEPÓSITO CONTA POUPANÇA
-
         System.out.println("Depósito de 1500 reais na conta do tipo poupança:");// true
-        System.out.println(contaPoupanca.depositar(500) + "\n");
+        System.out.println(contaPoupanca.depositar(1500) + "\n");
 
-        // SAQUE CONTA CORRENTE
+        System.out.println("Depósito de 98,52 reais na conta do tipo poupança:");// true
+        System.out.println(contaPoupanca.depositar(98.52) + "\n");
 
-        System.out.println("Saque de 500 reais na conta do tipo corrente:"); // true
-        System.out.println(contaCorrente.sacar(500) + "\n");
-
-        System.out.println("Saque de 600 reais na conta do tipo corrente:"); // false, pois o valor do saque não
-        System.out.println(contaCorrente.sacar(600) + "\n");           // pode ser maior que o saldo da conta
-
-        // SAQUE CONTA POUPANÇA
-
-        System.out.println("Saque de 500 reais na conta do tipo poupança");  // true
-        System.out.println(contaPoupanca.sacar(500) + "\n");
-
-        System.out.println("Saque de 600 reais na conta do tipo poupança"); // false, pois o valor do saque não
-        System.out.println(contaPoupanca.sacar(600) + "\n");          // pode ser maior que o saldo da conta
+        // SAQUE 100 REAIS CONTA POUPANÇA
+        System.out.println("Saque de 100 reais na conta do tipo poupança");  // true
+        System.out.println(contaPoupanca.sacar(100) + "\n");
 
         // TRANSFERÊNCIA DA CONTA CORRENTE PARA CONTA POUPANÇA
-
-        System.out.println("Transferência da conta corrente para conta poupança:"); // true
-        System.out.println(contaCorrente.transferir(200, contaPoupanca) + "\n");
+        System.out.println("Transferência de 1800 reais da conta corrente para conta poupança:"); // true
+        System.out.println(contaCorrente.transferir(1800, contaPoupanca) + "\n");
 
         // TRANSFERÊNCIA CONTA POUPANÇA PARA CONTA CORRENTE
+        System.out.println("Transferência de 700 reais da conta poupança para conta corrente");  // false, pois a conta poupança
+        System.out.println(contaPoupanca.transferir(700, contaCorrente) + "\n");           // não pode fazer transferências
 
-        System.out.println("Transferência da conta poupança para conta corrente");      // false, pois a conta poupança
-        System.out.println(contaPoupanca.transferir(200, contaCorrente) + "\n");  // não pode fazer transferências
+        // SAQUE 1000 REAIS CONTA POUPANÇA
+        System.out.println("Saque de 1000 reais da conta poupança");
+        System.out.println(contaPoupanca.sacar(1000) + "\n");
+
+        // SAQUE 1000 REAIS CONTA CORRENTE
+        System.out.println("Saque de 1000 reais da conta corrente"); // true
+        System.out.println(contaCorrente.sacar(1000) + "\n");
+
+
 
 
 
